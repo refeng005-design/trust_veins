@@ -191,33 +191,6 @@ The author and affiliation of this project:
 作者单位（Affiliation）：暨南大学网络空间安全学院（College of Cyber Security, Jinan University）
 ```
 
-若你使用本项目用于论文的实验，你可以引用本项目，latex版本引用如下：
-If you use this project for the experiment of the paper, you can cite this project, the latex version is cited as follows:
-
-```bibtex
-@misc{veins-trust-model,
-  author       = {Xu, Yanfeng},
-  title        = {Campus Vehicular Network Simulation Research},
-  year         = {2025},
-  howpublished = {\url{https://github.com/refeng005-design/veins}}
-}
-```
-
-word版本引用如下：
-The word version is quoted as follows:
-
-```
-Y. Xu, Campus Vehicular Network Simulation Research, https://github.com/refeng005-design/veins (2025).
-```
-
-当你公开了基于本项目的代码时，你必须注明原项目作者及出处：
-When you disclose the code based on this project, you must indicate the original project author and source:
-
-```
-Author: Yanfeng Xu
-Project: [校园车联网仿真研究](https://github.com/refeng005-design/veins)
-```
-
 ---
 
 ## 参考资源 References
