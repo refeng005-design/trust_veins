@@ -1,12 +1,27 @@
 # 校园车联网仿真研究
 
-## 项目声明
+## 目录 Table of Contents
 
-- **项目名称**：校园车联网仿真研究
-- **项目作者**：徐彦丰
-- **作者单位**：暨南大学网络空间安全学院
+- 项目简介 Project Introduction
+- 核心目录结构 Project Structure
+  - 示例程序 Examples
+  - 信任模型实现 Trust Model
+- 核心模块说明 Core Modules
+  - 信任模型算法 Trust Model Algorithm
+  - 恶意节点模拟 Malicious Node Simulation
+  - 示例场景配置 Scenario Configuration
+- 信任模型算法流程 Trust Algorithm Flow
+- 依赖环境 Dependencies
+- 快速开始 Getting Started
+- 技术特点 Features
+- 输出示例 Output Example
+- 项目声明 Project Statement
+- 参考资源 References
+- 许可证 License
 
-## 项目简介
+---
+
+## 项目简介 Project Introduction
 
 本项目是基于Veins框架的车联网**信任模型仿真研究**，专注于车联网环境下的信任管理机制研究。结合OMNeT++网络仿真器和SUMO交通仿真器，实现车辆间信任评估的建模与分析。
 
@@ -17,33 +32,42 @@
 - **恶意节点检测**：模拟恶意车辆发送虚假消息，通过信任模型进行识别
 - **反馈评价机制**：实现正常车辆与恶意车辆的不同评价策略
 
-## 核心目录结构
+---
+
+## 核心目录结构 Project Structure
+
+### 示例程序 Examples
 
 ```
-veins/
-├── examples/veins/              # 仿真示例场景
-│   ├── omnetpp.ini              # OMNeT++仿真配置文件
-│   ├── run                      # 仿真启动脚本
-│   ├── erlangen.*               # 德国Erlangen城市地图场景
-│   ├── downtown.*               # 市中心地图场景
-│   ├── JNU.*                    # 暨南大学(JNU)校园地图场景
-│   └── results/                 # 仿真结果输出目录
-│
-└── src/veins/modules/application/traci/   # 信任模型核心实现
-    ├── MyVeinsApp.cc             # 信任模型主实现（直接/间接/综合信任）
-    ├── MyVeinsApp.h              # 信任模型数据结构定义
-    ├── MyVeinsApp.ned           # 信任模型应用模块定义
-    ├── TraCIDemo11p.*           # TraCI演示程序（车辆与SUMO交互）
-    ├── TraCIDemoRSU11p.*        # 路侧单元(RSU)应用示例
-    ├── TraCIDemoTrafficLightApp.*  # 交通灯控制应用
-    └── TraCIDemo11pMessage.*    # 消息定义文件（.msg/.cc/.h）
+examples/veins/
+├── omnetpp.ini              # OMNeT++仿真配置文件
+├── run                      # 仿真启动脚本
+├── erlangen.*               # 德国Erlangen城市地图场景
+├── downtown.*               # 市中心地图场景
+├── JNU.*                    # 暨南大学(JNU)校园地图场景
+└── results/                 # 仿真结果输出目录
 ```
 
-## 核心模块说明
+### 信任模型实现 Trust Model
 
-### 1. 信任模型实现 (`MyVeinsApp.cc/.h`)
-| 功能 | 说明 |
-|------|------|
+```
+src/veins/modules/application/traci/
+├── MyVeinsApp.cc            # 信任模型主实现
+├── MyVeinsApp.h             # 信任模型数据结构定义
+├── MyVeinsApp.ned           # 信任模型应用模块定义
+├── TraCIDemo11p.*           # TraCI演示程序
+├── TraCIDemoRSU11p.*        # 路侧单元(RSU)应用
+└── TraCIDemo11pMessage.*    # 消息定义文件
+```
+
+---
+
+## 核心模块说明 Core Modules
+
+### 信任模型算法 Trust Model Algorithm
+
+| 函数/模块 | 功能说明 |
+|---------|---------|
 | `initializeMaliciousList()` | 初始化恶意车辆列表 |
 | `evaluateMessage()` | 消息评价逻辑（区分正常/恶意车辆） |
 | `dtCalc.compute_round_dt()` | 直接信任(DT)计算 |
@@ -51,14 +75,16 @@ veins/
 | `CT = f(DT, IT)` | 综合信任计算 |
 | `FT` | 最终信任值（多轮平均） |
 
-### 2. 恶意节点模拟
+### 恶意节点模拟 Malicious Node Simulation
+
 | 特性 | 说明 |
 |------|------|
 | 虚假消息 | 恶意车辆以一定概率发送虚假消息 |
 | 反向评价 | 恶意车辆对正常消息给出差评，对虚假消息给出好评 |
 | 可配置比例 | 支持设置恶意车辆占比 |
 
-### 3. 示例程序 (`examples/veins/`)
+### 示例场景配置 Scenario Configuration
+
 | 文件 | 说明 |
 |------|------|
 | `omnetpp.ini` | OMNeT++仿真主配置文件 |
@@ -67,7 +93,9 @@ veins/
 | `erlangen.*` | Erlangen城市场景对比 |
 | `results/` | 仿真结果与信任值输出 |
 
-## 信任模型算法
+---
+
+## 信任模型算法流程 Trust Algorithm Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -103,13 +131,17 @@ veins/
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 依赖环境
+---
+
+## 依赖环境 Dependencies
 
 - **OMNeT++** 5.x 或更高版本
 - **SUMO** 1.x 或更高版本
 - **C++11** 编译器
 
-## 快速开始
+---
+
+## 快速开始 Getting Started
 
 ```bash
 # 1. 配置环境
@@ -123,7 +155,9 @@ cd examples/veins
 ./run
 ```
 
-## 技术特点
+---
+
+## 技术特点 Features
 
 - **多维度信任评估**：结合直接信任与间接信任
 - **恶意节点检测**：有效识别发送虚假消息的恶意车辆
@@ -131,7 +165,9 @@ cd examples/veins
 - **校园场景定制**：基于暨南大学校园地图的仿真环境
 - **可扩展架构**：模块化设计，便于添加新的信任算法
 
-## 输出示例
+---
+
+## 输出示例 Output Example
 
 ```
 [Round 1] Direct & Indirect Trust Calculation...
@@ -142,17 +178,56 @@ Vehicle 0 -> 2 DT=0.9200 IT=0.8800 CT=0.9000
 [FT] Vehicle 1 FinalTrust=0.6500 (based on 3 records)
 ```
 
-## 许可证
+---
 
-本项目遵循 GPL-2.0-or-later 许可证。详见 [COPYING](COPYING) 文件。
+## 项目声明 Project Statement
 
-## 参考资源
+本项目的作者及单位：
+The author and affiliation of this project:
+
+```
+项目名称（Project Name）：校园车联网仿真研究
+项目作者（Author）：徐彦丰
+作者单位（Affiliation）：暨南大学网络空间安全学院（College of Cyber Security, Jinan University）
+```
+
+若你使用本项目用于论文的实验，你可以引用本项目，latex版本引用如下：
+If you use this project for the experiment of the paper, you can cite this project, the latex version is cited as follows:
+
+```bibtex
+@misc{veins-trust-model,
+  author       = {Xu, Yanfeng},
+  title        = {Campus Vehicular Network Simulation Research},
+  year         = {2025},
+  howpublished = {\url{https://github.com/refeng005-design/veins}}
+}
+```
+
+word版本引用如下：
+The word version is quoted as follows:
+
+```
+Y. Xu, Campus Vehicular Network Simulation Research, https://github.com/refeng005-design/veins (2025).
+```
+
+当你公开了基于本项目的代码时，你必须注明原项目作者及出处：
+When you disclose the code based on this project, you must indicate the original project author and source:
+
+```
+Author: Yanfeng Xu
+Project: [校园车联网仿真研究](https://github.com/refeng005-design/veins)
+```
+
+---
+
+## 参考资源 References
 
 - Veins官方网站: http://veins.car2x.org/
 - OMNeT++: https://omnetpp.org/
 - SUMO: https://www.eclipse.org/sumo/
 
-## 作者信息
+---
 
-徐彦丰
-暨南大学网络空间安全学院
+## 许可证 License
+
+本项目遵循 GPL-2.0-or-later 许可证。详见 [COPYING](COPYING) 文件。
