@@ -182,7 +182,7 @@ The author and affiliation of this project:
 
 ```
 项目名称（Project Name）：校园车联网仿真研究
-项目作者（Author）：徐彦丰
+项目作者（Author）：Yanfeng Xu, Yongdong Wu
 作者单位（Affiliation）：暨南大学网络空间安全学院（College of Cyber Security, Jinan University）
 ```
 
