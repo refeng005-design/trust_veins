@@ -1,4 +1,4 @@
-# trust-veins
+# trust_veins
 
 ## 目录 Table of Contents
 
@@ -181,7 +181,7 @@ Vehicle 0 -> 2 DT=0.9200 IT=0.8800 CT=0.9000
 The author and affiliation of this project:
 
 ```
-项目名称（Project Name）：trust-veins
+项目名称（Project Name）：trust_veins
 项目作者（Author）：Yanfeng Xu,Huajian Huang,Yongdong Wu
 作者单位（Affiliation）：暨南大学网络空间安全学院（College of Cyber Security, Jinan University）
 ```
